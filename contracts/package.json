@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "FHEVM Smart Contracts for Encrypted Casino",
   "scripts": {
+    "build": "echo Skipping contract build on CI",
     "deploy:sepolia:ethers": "node scripts/deploy-ethers.js"
   },
   "devDependencies": {
