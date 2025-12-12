@@ -17,9 +17,7 @@ pnpm-debug.log*
 .env.local
 .env.*.local
 contracts/.env
-contracts/.env.*
 frontend/.env
-frontend/.env.*
 
 # --- Next.js ---
 frontend/.next/
