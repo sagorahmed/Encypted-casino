@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Secure, privacy-preserving casino using Zama FHEVM",
   "private": true,
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
+  },
   "workspaces": [
     "contracts",
     "frontend"
