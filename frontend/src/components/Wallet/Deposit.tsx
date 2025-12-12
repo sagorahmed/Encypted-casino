@@ -6,7 +6,6 @@ import { getCasinoAddressByChainId } from "../../lib/wallet-config";
 
 interface DepositWithdrawProps {
   onSuccess?: () => void;
-  refreshTrigger?: number;
   onWithdraw?: () => void;
   onBalanceUpdate?: (newBalanceEth?: string) => void;
 }
@@ -18,7 +17,7 @@ const GAME_HOUSE_ABI = parseAbi([
   "function getContractBalance() external view returns (uint256)",
 ]);
 
-export const DepositWithdraw: React.FC<DepositWithdrawProps> = ({ onSuccess, refreshTrigger = 0, onWithdraw, onBalanceUpdate }) => {
+export const DepositWithdraw: React.FC<DepositWithdrawProps> = ({ onSuccess, onWithdraw, onBalanceUpdate }) => {
   const { address, isConnected } = useAccount();
   const { data: walletClient } = useWalletClient();
   const publicClient = usePublicClient();

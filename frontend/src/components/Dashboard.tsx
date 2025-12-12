@@ -107,7 +107,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ contractAddress }) => {
                 revealedBalanceHintEth={revealedBalanceHintEth}
               />
               <DepositWithdraw
-                refreshTrigger={refreshTrigger}
                 onWithdraw={() => handleBalanceUpdate()}
                 onBalanceUpdate={(newBal) => handleBalanceUpdate(newBal)}
               />

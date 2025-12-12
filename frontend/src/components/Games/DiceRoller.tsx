@@ -16,7 +16,6 @@ export const DiceRoller: React.FC<DiceRollerProps> = ({ onGameResult, onBalanceU
   const [betAmount, setBetAmount] = useState("0.0001");
   const [choice, setChoice] = useState<number>(1);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [result, setResult] = useState<{ won: boolean; payout: string } | null>(null);
   const [message, setMessage] = useState("");
 
   const DICE_ABI = parseAbi([
@@ -36,7 +35,6 @@ export const DiceRoller: React.FC<DiceRollerProps> = ({ onGameResult, onBalanceU
 
     setIsPlaying(true);
     setMessage("Rolling dice...");
-    setResult(null);
 
     try {
       // Send dummy encrypted values
