@@ -1,0 +1,139 @@
+# Deployment Steps - Follow These Commands
+
+## Step 1: Navigate to Contracts Folder
+```bash
+cd d:\Blockchain\ project\Encrypted\ casino\contracts
+```
+
+Or if that doesn't work, use quotes:
+```bash
+cd "d:\Blockchain project\Encrypted casino\contracts"
+```
+
+## Step 2: Install Dependencies (if not already done)
+```bash
+npm install --legacy-peer-deps
+```
+
+This installs all required packages. It may take 2-3 minutes.
+
+## Step 3: Compile the Smart Contract
+```bash
+npx hardhat compile
+```
+
+This should output something like:
+```
+Compiling 1 file with 0.8.19
+✓ Compiled successfully
+```
+
+**✅ If you see "✓ Compiled successfully", move to Step 4**
+
+## Step 4: Deploy to Sepolia Testnet
+```bash
+npx hardhat run scripts/deploySepolia.ts --network sepolia
+```
+
+This will:
+1. Deploy your contract to Sepolia
+2. Show you the contract address
+3. Take about 30-60 seconds
+
+**When it finishes, you'll see something like:**
+```
+Deploying GameHouse contract...
+✓ Contract deployed to: 0x1234567890abcdef1234567890abcdef12345678
+Waiting for confirmations...
+✓ Contract verified on Etherscan
+```
+
+**IMPORTANT: Copy the contract address (0x1234...)**
+
+---
+
+## Step 5: Update Frontend Configuration
+
+Once you have the contract address from Step 4, open:
+`frontend/.env.sepolia`
+
+Update this line:
+```
+NEXT_PUBLIC_CASINO_CONTRACT_ADDRESS=0x<PASTE_YOUR_ADDRESS_HERE>
+```
+
+Replace `0x<PASTE_YOUR_ADDRESS_HERE>` with the address from Step 4.
+
+---
+
+## Step 6: Start Frontend
+
+Open a NEW terminal window and run:
+```bash
+cd "d:\Blockchain project\Encrypted casino\frontend"
+npm install
+npm run dev
+```
+
+Then open your browser to: **http://localhost:3000**
+
+---
+
+## Step 7: Test in Browser
+
+1. Click "Connect Wallet"
+2. Approve MetaMask connection
+3. Make sure network is "Sepolia"
+4. Deposit 0.01 ETH
+5. Play a game!
+
+---
+
+## Verification - Check Your Deployment
+
+Visit this URL (replace ADDRESS with your deployed address):
+```
+https://sepolia.etherscan.io/address/0x<ADDRESS>
+```
+
+You should see your contract code on Etherscan.
+
+---
+
+## Having Issues?
+
+### Error: "SEPOLIA_RPC_URL not provided"
+- Your `.env` file might be missing SEPOLIA_RPC_URL
+- Check `contracts/.env` file exists
+- Make sure SEPOLIA_RPC_URL line has a valid Infura URL
+
+### Error: "Insufficient funds"
+- Your wallet needs test ETH
+- Get from: https://www.sepoliafaucet.com
+
+### Error: "Invalid private key"
+- Check PRIVATE_KEY in `contracts/.env`
+- It should start with `0x`
+- Should be 66 characters total
+
+### Contract won't deploy
+- Make sure Sepolia RPC URL is correct
+- Check internet connection
+- Try again in 30 seconds
+
+---
+
+## Ready to Deploy?
+
+**Run these commands in order:**
+
+```bash
+cd "d:\Blockchain project\Encrypted casino\contracts"
+npm install --legacy-peer-deps
+npx hardhat compile
+npx hardhat run scripts/deploySepolia.ts --network sepolia
+```
+
+**Then get your contract address and move to Step 5.**
+
+Let me know if you hit any issues!

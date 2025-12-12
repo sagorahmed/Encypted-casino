@@ -1,0 +1,24 @@
+{
+  "name": "encrypted-casino",
+  "version": "1.0.0",
+  "description": "Secure, privacy-preserving casino using Zama FHEVM",
+  "private": true,
+  "workspaces": [
+    "contracts",
+    "frontend"
+  ],
+  "scripts": {
+    "install-all": "npm install && npm install --workspace=contracts && npm install --workspace=frontend",
+    "build": "npm run build --workspace=contracts && npm run build --workspace=frontend",
+    "test": "npm run test --workspace=contracts",
+    "deploy": "npm run deploy --workspace=contracts",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "dev:contracts": "npm run node --workspace=contracts"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0"
+  }
+}

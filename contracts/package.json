@@ -1,0 +1,16 @@
+{
+  "name": "encrypted-casino-contracts",
+  "version": "1.0.0",
+  "description": "FHEVM Smart Contracts for Encrypted Casino",
+  "scripts": {
+    "deploy:sepolia:ethers": "node scripts/deploy-ethers.js"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "ethers": "^6.10.0"
+  },
+  "dependencies": {
+    "@fhevm/solidity": "^0.9.1",
+    "@openzeppelin/contracts": "^5.4.0"
+  }
+}
