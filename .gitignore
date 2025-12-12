@@ -13,9 +13,6 @@ pnpm-debug.log*
 
 # --- Env / secrets (DO NOT COMMIT) ---
 .env
-.env.*
-.env.local
-.env.*.local
 contracts/.env
 frontend/.env
 
