@@ -85,9 +85,16 @@ export const Dashboard: React.FC<DashboardProps> = ({ contractAddress }) => {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-casino-purple to-casino-gold mb-2">
-            🎰 Encrypted Casino
-          </h1>
+          <div className="flex items-center gap-3 mb-2">
+            <div className="h-10 w-10 rounded-lg bg-gradient-to-br from-casino-purple to-casino-gold flex items-center justify-center">
+              <span className="text-casino-dark text-xl" aria-hidden="true">
+                🎰
+              </span>
+            </div>
+            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-casino-purple to-casino-gold">
+              Encrypted Casino
+            </h1>
+          </div>
           <p className="text-gray-400">
             Secure, privacy-preserving casino gaming with FHEVM encryption
           </p>
@@ -225,26 +232,6 @@ export const Dashboard: React.FC<DashboardProps> = ({ contractAddress }) => {
                       🏆 {showLeaderboard ? "Hide" : "View"} Leaderboard
                     </span>
                   </button>
-
-                  {/* Features */}
-                  <div className="mt-8 grid grid-cols-2 gap-4 pt-4 border-t border-casino-purple/30">
-                    <div className="text-center">
-                      <p className="text-casino-gold text-2xl mb-1">🔒</p>
-                      <p className="text-xs text-gray-400">FHE Encrypted</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-casino-gold text-2xl mb-1">⚡</p>
-                      <p className="text-xs text-gray-400">Fast Payouts</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-casino-gold text-2xl mb-1">🎰</p>
-                      <p className="text-xs text-gray-400">Fair Gaming</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-casino-gold text-2xl mb-1">🌐</p>
-                      <p className="text-xs text-gray-400">Web3 Native</p>
-                    </div>
-                  </div>
                 </div>
               )}
 
