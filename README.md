@@ -80,8 +80,11 @@ npm run contracts:compile
 
 ### 4) Deploy to Sepolia
 
+
+
 ```bash
-node scripts\deploy-ethers.js --workspace=contracts
+cd contracts 
+node scripts\deploy-ethers.js
 ```
 
 Copy the Deployed GameHouse address into `frontend/.env` as `NEXT_PUBLIC_CASINO_CONTRACT_ADDRESS`.
@@ -89,6 +92,7 @@ Copy the Deployed GameHouse address into `frontend/.env` as `NEXT_PUBLIC_CASINO_
 ### 5) Run the frontend
 
 ```bash
+cd..
 cd frontend
 npm run dev
 ```
