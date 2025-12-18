@@ -13,6 +13,7 @@
   ],
   "scripts": {
     "install-all": "npm install && npm install --workspace=contracts && npm install --workspace=frontend",
+    "contracts:compile": "npm run --workspace=contracts compile",
     "build": "npm run build --workspace=frontend",
     "build:all": "npm run build --workspace=contracts && npm run build --workspace=frontend",
     "test": "npm run test --workspace=contracts",
