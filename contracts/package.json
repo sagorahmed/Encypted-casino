@@ -4,11 +4,23 @@
   "description": "FHEVM Smart Contracts for Encrypted Casino",
   "scripts": {
     "build": "echo Skipping contract build on CI",
+    "clean": "hardhat clean",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy": "hardhat run scripts/deploy.ts",
+    "deploy:sepolia": "hardhat run scripts/deploySepolia.ts --network sepolia",
     "deploy:sepolia:ethers": "node scripts/deploy-ethers.js"
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-ethers": "^3.1.0",
+    "@types/node": "^22.10.0",
+    "chai": "^4.5.0",
     "dotenv": "^16.3.1",
-    "ethers": "^6.10.0"
+    "ethers": "^6.10.0",
+    "hardhat": "^2.22.18",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "@fhevm/solidity": "^0.9.1",
