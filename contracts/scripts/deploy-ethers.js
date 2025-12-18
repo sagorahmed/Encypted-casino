@@ -15,15 +15,18 @@ const provider = new ethers.JsonRpcProvider(RPC);
 const wallet = new ethers.Wallet(PK, provider);
 
 // Load compiled artifact (ABI + bytecode)
-const primaryArtifactPath = join(process.cwd(), 'artifacts', 'contracts', 'GameHouse.sol', 'GameHouse.json');
-const legacyArtifactPath = join(process.cwd(), 'artifacts', 'GameHouse.sol', 'GameHouse.json');
-const artifactPath = existsSync(primaryArtifactPath) ? primaryArtifactPath : legacyArtifactPath;
+const candidateArtifactPaths = [
+  join(process.cwd(), 'artifacts', 'contracts', 'GameHouse.sol', 'GameHouse.json'),
+  join(process.cwd(), 'artifacts', 'src', 'GameHouse.sol', 'GameHouse.json'),
+  join(process.cwd(), 'artifacts', 'GameHouse.sol', 'GameHouse.json'),
+];
 
-if (!existsSync(artifactPath)) {
+const artifactPath = candidateArtifactPaths.find((p) => existsSync(p));
+
+if (!artifactPath) {
   console.error('Missing compiled artifact. Run `npm run --workspace=contracts compile` first.');
   console.error('Expected one of:');
-  console.error('-', primaryArtifactPath);
-  console.error('-', legacyArtifactPath);
+  for (const p of candidateArtifactPaths) console.error('-', p);
   process.exit(1);
 }
 
