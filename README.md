@@ -75,8 +75,7 @@ Security note: never commit `.env*` files.
 ### 3) Compile contracts
 
 ```bash
-npm run compile --workspace=contracts
-Or npx hardhat compile --workspace=contracts
+npm run contracts:compile
 ```
 
 ### 4) Deploy to Sepolia
